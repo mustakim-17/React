@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>lesson-3-display-as-you-type</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+      function App() {
+        const [name, setName] = React.useState('');
+
+        function saveName(event) {
+          setName(event.target.value);
+        }
+        function reset () {
+          setName('');
+        }
+        function example () {
+          setName('Alice');
+        }
+
+        return(
+          <>
+            <input
+              placeholder = "Type a name here"
+              onChange = {saveName}
+              value = {name}
+            />
+            <button
+              onClick = {reset}
+            >Reset</button>
+
+            <button
+              onClick = {example}
+            >Example</button>
+            
+            <p>Hello {name}</p>
+          </>
+        );
+      }
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesson 4-button</title>
+    <style>
+      body{
+        font-family: Arial;
+      }
+      .on-btn{
+        background-color: rgb(25,135,84);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 12px;
+      }
+
+      .off-btn{
+        background-color: rgb(230,53,69);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      function OnOffButton () {
+        const [isButtonOn , setIsButtonOn] = React.useState(true);
+  
+        function switching () {
+          if (isButtonOn) {
+            setIsButtonOn(false);
+          }else if(!isButtonOn) {
+            setIsButtonOn(true);
+          }
+        }
+        
+        return(
+          <div>
+            {isButtonOn 
+              ? <button className="on-btn" onClick={switching}>ON</button>
+              : <button className="off-btn" onClick={switching}>OFF</button>
+            }  
+          </div>
+        )
+      }
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<OnOffButton />);
+    </script>
+  </body>
+</html>

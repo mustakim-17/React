@@ -1,0 +1,17 @@
+.greeting{
+  font-size: 27px;
+}
+
+.input-form{
+  width: 240px;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.login-btn{
+  margin-left: 0;
+}
+
+.button-div{
+  margin-top: 20px;
+}
