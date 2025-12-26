@@ -88,7 +88,7 @@ export function OrderPage({ cart }) {
                 </div>
               </div>
             );
-          })}
+          })};
         </div>
       </div>
     </>
