@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { formatMoney } from "../../utils/money";
 import CheckmarkIcon from '../../assets/images/icons/checkmark.png';
 
@@ -6,8 +7,8 @@ export function ProductsGrid({products}) {
     <div className="products-grid">
       {products.map((product) => {
         return (
-          <>
-            <div key={product.id} className="product-container">
+          <Fragment key={product.id}>
+            <div className="product-container">
               <div className="product-image-container">
                 <img className="product-image"
                   src={product.image} />
@@ -55,7 +56,7 @@ export function ProductsGrid({products}) {
                 Add to Cart
               </button>
             </div>
-          </>
+          </Fragment>
         )
       })}
     </div>

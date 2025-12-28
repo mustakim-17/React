@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { DeliveryOptions } from "./DeliveryOptions";
 import { CartItemDetails } from "./CartItemDetails";
 import { DeliveryDate } from "./DeliveryDate";
@@ -7,8 +8,8 @@ export function OrderSummary({cart, deliveryOptions}) {
     <div className="order-summary">
       {deliveryOptions.length > 0 && cart.map((cartItem) => {
         return (
-          <>
-            <div key={cartItem.productId} className="cart-item-container">
+          <Fragment key={cartItem.productId}>
+            <div className="cart-item-container">
               <DeliveryDate deliveryOptions={deliveryOptions} cartItem={cartItem} />
 
               <div className="cart-item-details-grid">
@@ -17,7 +18,7 @@ export function OrderSummary({cart, deliveryOptions}) {
                 <DeliveryOptions deliveryOptions={deliveryOptions} cartItem={cartItem} />
               </div>
             </div>
-          </>
+          </Fragment>
         );
       })}
     </div>
